@@ -1,0 +1,20 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
+
+platforms:
+- name: debian71-virtualbox
+  driver_config:
+    box: misheska-debian71
+    box_url: https://dl.dropboxusercontent.com/s/it2y0qvrencv3jg/misheska-debian71.box?token_hash=AAGkdmtEBG6xpskfaITDKSfsSNqVE2P2mJwsWeSJ76ZyvA&dl=1
+- name: debian71-vmware-fusion
+  driver_config:
+    provider: vmware_fusion
+    box: misheska-debian71
+    box_url: https://dl.dropboxusercontent.com/s/l96ew3z8auhn8kd/misheska-debian71.box?token_hash=AAGxp64UIE4mVnXawCEWx77zN871ZRTGrpPfB-y_9I3WQA&dl=1
+
+suites:
+- name: default
+  run_list: ["recipe[wheezy-lamp]"]
+  attributes: {}
